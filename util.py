@@ -44,7 +44,7 @@ async def watch(path, immediate=True):
 async def concat(gens):
     q = Queue()
 
-    items = [ g if isinstance(g, str) else None for g in gens ]
+    items = [ g if isinstance(g, str) else '' for g in gens ]
     
     async def run_on_queue(index, it):
         async for item in it:
@@ -55,11 +55,15 @@ async def concat(gens):
             continue
         create_task(run_on_queue(i, gen)) 
 
+    last_output = None
     while True:
         i, item = await q.get()
         items[i] = item
         if all(items):
-            yield ''.join(items)
+            output = ''.join(items)
+            if output != last_output:
+                last_output = output
+                yield output
 
 def readline(path):
     try:
