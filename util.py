@@ -7,9 +7,11 @@ import aionotify
 async def drain(gen):
     async for _ in gen: pass
 
-async def async_map(fn, it):
+async def async_map(fn, it, filter_none=True):
     async for item in it:
-        yield fn(item)
+        mapped = fn(item)
+        if not filter_none or mapped is not None:
+            yield mapped
 
 async def poll(fn, interval=1):
     while True:
@@ -18,7 +20,10 @@ async def poll(fn, interval=1):
             yield txt
         await sleep(interval)
 
-async def listen(*cmd):
+async def listen(*cmd, immediate=None):
+    if immediate:
+        yield immediate
+
     proc = await create_subprocess_exec(
         *cmd,
         stdout=subprocess.PIPE,

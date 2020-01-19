@@ -1,8 +1,11 @@
-from util import listen, execute
+from util import async_map, listen, execute
 from asyncio import run
 import icons
 
-def get_vol():
+def get_vol(line):
+    if 'sink #0' not in line:
+        return None
+
     percent = int(execute('pamixer', '--get-volume'))
     muted = execute('pamixer', '--get-mute')
     
@@ -14,10 +17,6 @@ def get_vol():
     
     return '{} {}%'.format(icon, percent)
 
-async def vol():
-    yield get_vol()
-    async for line in listen('pactl', 'subscribe'):
-        if 'sink #0' not in line:
-            continue
-        yield get_vol()
+def vol():
+    return async_map(get_vol, listen('pactl', 'subscribe', immediate='sink #0'))
 
