@@ -48,4 +48,4 @@ bri = [
     '\uf0e0', # high
 ]
 
-ntw = [ '\uf92c', '\uf928', '\uf927' ]
+ntw = [ '\uf5aa', '\ufe6b', '\uf5a9' ]
