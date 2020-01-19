@@ -65,11 +65,11 @@ async def concat(gens):
                 last_output = output
                 yield output
 
-def readline(path):
+def readline(path, default=''):
     try:
         return open(path).readline().rstrip()
     except:
-        return None
+        return default
 
 def execute(*cmd):
     result = run(cmd, stdout=PIPE)
