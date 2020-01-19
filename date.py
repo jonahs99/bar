@@ -1,7 +1,7 @@
 from util import poll, execute
 
 def get_date():
-    d = execute('date', '+%H:%M  %b %d %Y')
+    d = execute('date', '+%a %b %d - %H:%M')
     return '{}'.format(d)
 
 def date():
