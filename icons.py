@@ -47,3 +47,5 @@ bri = [
     '\uf0df', # med
     '\uf0e0', # high
 ]
+
+ntw = [ '\uf92c', '\uf928', '\uf927' ]
