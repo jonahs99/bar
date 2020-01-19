@@ -1,12 +1,12 @@
 icon_font = "Material Design Icons:size=15"
 
-vol_icons = [
+vol = [
     '\uf57f',
     '\uf580',
     '\uf57e',
 ]
 
-vol_muted_icon = '\uf75e'
+vol_muted = '\uf75e'
 
 bat = [
     '\uf08e',

@@ -1,6 +1,6 @@
 from util import listen, execute
 from asyncio import run
-from icons import vol_icons, vol_muted_icon
+import icons
 
 def get_vol():
     percent = int(execute('pamixer', '--get-volume'))
@@ -8,9 +8,9 @@ def get_vol():
     
     if muted == 'false':
         step = percent // 34
-        icon = vol_icons[step]
+        icon = icons.vol[step]
     else:
-        icon = vol_muted_icon
+        icon = icons.vol_muted
     
     return '{} {}%'.format(icon, percent)
 
