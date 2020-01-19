@@ -1,4 +1,5 @@
 from wks import wks
+from title import title
 from bat import bat
 from bri import bri
 from date import date
@@ -9,7 +10,7 @@ center = '%{c}'
 right = '%{r}'
 
 bar = [
-    left, ' ', wks(),
+    left, ' ', wks(), '  ', title(),
     center, date(),
     right, bri(), '  ', vol(), '  ', bat(), ' ',
 ]
