@@ -42,3 +42,8 @@ wks = [
     '\ufa12', # focused
 ]
 
+bri = [
+    '\uf0de', # low
+    '\uf0df', # med
+    '\uf0e0', # high
+]
