@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from asyncio import run, create_task, Queue
 
 from config import bar
