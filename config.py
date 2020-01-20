@@ -6,12 +6,10 @@ from date import date
 from vol import vol
 from ntw import ntw
 
-left = '%{l}'
-center = '%{c}'
-right = '%{r}'
+from fmt import left, center, right
 
 bar = [
-    left, ' ', wks(), '  ', title(),
+    left, wks(), ' ', title(),
     center, date(),
     right, ntw(), '  ', bri(), '  ', vol(), '  ', bat(), ' ',
 ]

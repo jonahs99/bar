@@ -1,12 +1,10 @@
-icon_font = "Material Design Icons:size=15"
-
-vol = [
-    '\uf57f',
-    '\uf580',
-    '\uf57e',
-]
+vol = [ '\uf57f', '\uf580', '\uf57e' ]
 
 vol_muted = '\uf75e'
+
+bri = [ '\uf0de', '\uf0df', '\uf0e0' ]
+
+ntw = [ '\uf5aa', '\ufe6b', '\uf5a9' ]
 
 bat = [
     '\uf08e',
@@ -36,16 +34,3 @@ batc = [
     '\uf085',
 ]
 
-wks = [
-    '\ufa14', # free
-    '\ufa13', # occ
-    '\ufa12', # focused
-]
-
-bri = [
-    '\uf0de', # low
-    '\uf0df', # med
-    '\uf0e0', # high
-]
-
-ntw = [ '\uf5aa', '\ufe6b', '\uf5a9' ]

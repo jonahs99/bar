@@ -1,12 +1,13 @@
 from util import async_map, execute, listen
+import fmt
 import icons
 
 symbols = {
-    'disconnected': icons.ntw[0],
-    'connecting': icons.ntw[1],
-    'connected (local only)': icons.ntw[1],
-    'connected (site only)': icons.ntw[1],
-    'connected': icons.ntw[2],
+    'disconnected': fmt.clr(icons.ntw[0], 1),
+    'connecting': fmt.clr(icons.ntw[1], 3),
+    'connected (local only)': fmt.clr(icons.ntw[1], 11),
+    'connected (site only)': fmt.clr(icons.ntw[1], 11),
+    'connected': icons.ntw[2]
 }
 
 def get_ntw(_):
