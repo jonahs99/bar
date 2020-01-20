@@ -23,16 +23,12 @@ async def poll(fn, interval=1):
 async def listen(*cmd, immediate=None):
     if immediate:
         yield immediate
-
     proc = await create_subprocess_exec(
         *cmd,
         stdout=subprocess.PIPE,
         stderr=sys.stderr)
-
     while True:
         line = await proc.stdout.readline()
-        if not line:
-            return
         yield line.decode().rstrip()
 
 async def watch(path, immediate=True):
@@ -64,11 +60,10 @@ async def concat(gens):
     while True:
         i, item = await q.get()
         items[i] = item
-        if all(items):
-            output = ''.join(items)
-            if output != last_output:
-                last_output = output
-                yield output
+        output = ''.join(items)
+        if output != last_output:
+            last_output = output
+            yield output
 
 def readline(path, default=''):
     try:
