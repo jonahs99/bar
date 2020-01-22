@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from asyncio import run, create_task, Queue
+from asyncio import run
 
 from config import bar
 from util import async_map, drain, concat
