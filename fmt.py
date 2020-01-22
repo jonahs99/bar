@@ -10,6 +10,10 @@ def clr(txt, i, t='F'):
 def und(txt, i):
     return '%{{+uU{}}}{}%{{-uU-}}'.format(colors[i], txt)
 
+# Run something 
+def cmd(txt, command, button=1):
+    return '%{{A:{}:}}{}%{{A}}'.format(command, txt)
+
 left = '%{l}'
 center = '%{c}'
 right = '%{r}'
