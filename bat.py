@@ -19,7 +19,7 @@ def get_bat():
     charging = int(readline(ac))
 
     percent = round((b0_val+b1_val) * 100 / (b0_max+b1_max))
-    idx = floor(percent / 100 * 11)
+    idx = min(floor(percent / 100 * 11), len(icons.bat))
     icon = icons.batc[idx] if charging else icons.bat[idx]
     if idx < len(warning_colors):
         icon = fmt.clr(icon, warning_colors[idx])
