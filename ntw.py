@@ -1,6 +1,5 @@
 from util import async_map, execute, listen
-import fmt
-import icons
+import fmt, icons
 
 symbols = {
     'disconnected': fmt.clr(icons.ntw[0], 1),
@@ -15,7 +14,7 @@ def get_ntw(_):
     network = execute('nmcli', '-t', '-f', 'NAME', 'c', 'show', '--active')
 
     symbol = symbols[state if state in symbols else 'disconnected']
-    return '{} {}'.format(symbol, network)
+    return '{} {}'.format(symbol, network) if network else symbol
 
 def ntw():
     return async_map(get_ntw, listen('nmcli', 'm', immediate=True))
