@@ -1,19 +1,14 @@
 import os
 
-def get_colors(file_name):
-    colors = []
-    file = open(os.path.abspath(file_name))
-    for line in file:
-        if (i := line.find('#')) != -1:
-            colors.append(line[i:i+8])
-    return colors
+print(os.environ['color' + str(8)])
 
-colors = get_colors('.config/colors')
+colors = [ os.environ['color' + str(i)] for i in range(16) ]
 
-# clr('red bg', 1, 'B') -> '%{Bc[1]}red bg%{B-}'
+# Usage: clr('red bg', 1, 'B') -> '%{B$color1}red bg%{B-}'
 def clr(txt, i, t='F'):
     return '%{{{}{}}}{}%{{{}-}}'.format(t, colors[i], txt, t)
 
+# Usage: und('blue underline', 4) -> '%{+uU$color4}blue underline%{-uU-}'
 def und(txt, i):
     return '%{{+uU{}}}{}%{{-uU-}}'.format(colors[i], txt)
 
