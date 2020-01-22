@@ -1,7 +1,5 @@
 import os
 
-print(os.environ['color' + str(8)])
-
 colors = [ os.environ['color' + str(i)] for i in range(16) ]
 
 # Usage: clr('red bg', 1, 'B') -> '%{B$color1}red bg%{B-}'
