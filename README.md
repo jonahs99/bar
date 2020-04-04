@@ -1,6 +1,6 @@
 # Modular status bar generator
 
-Single threaded async I/O to avoid uneccessary polling.
+Async I/O to avoid unecessary polling or extra threads.
 
 Rearrange modules in `config.py`.
 
