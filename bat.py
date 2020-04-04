@@ -18,7 +18,7 @@ def get_bat():
     b1_val = int(readline(bat1 + "energy_now", '0'))
     charging = int(readline(ac))
 
-    percent = round((b0_val+b1_val) * 100 / (b0_max+b1_max))
+    percent = 0 if b0_max+b1_max == 0 else round((b0_val+b1_val) * 100 / (b0_max+b1_max))
     idx = min(floor(percent / 100 * 11), len(icons.bat) - 1)
     icon = icons.batc[idx] if charging else icons.bat[idx]
     if idx < len(warning_colors):
