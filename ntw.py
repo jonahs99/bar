@@ -11,7 +11,7 @@ symbols = {
 
 def get_ntw(_):
     state, connectivity, _, _, _, _ = execute('nmcli', '-t', 'g').split(':')
-    network = execute('nmcli', '-t', '-f', 'NAME', 'c', 'show', '--active')
+    network = execute('nmcli', '-t', '-f', 'NAME', 'c', 'show', '--active').replace('\n', ' -- ')
 
     symbol = symbols[state if state in symbols else 'disconnected']
     return '{} {}'.format(symbol, network) if network else symbol
